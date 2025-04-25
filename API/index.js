@@ -1,5 +1,3 @@
-// api/popularGames.js
-
 const { firefox } = require('playwright');
 
 module.exports = async (req, res) => {
@@ -35,6 +33,9 @@ module.exports = async (req, res) => {
         });
 
         await browser.close();
+
+        // Логирование возвращаемых данных
+        console.log('Возвращаемые данные:', JSON.stringify(games, null, 2));
 
         res.status(200).json(games);  // Отправляем данные как JSON
     } catch (error) {
