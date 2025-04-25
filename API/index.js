@@ -1,4 +1,4 @@
-// В файле api/popularGames.js
+// В файле api/popularGames.j
 
 const { firefox } = require('playwright');
 
