@@ -1,4 +1,4 @@
-// В файле api/popularGames.js (или любом другом файле в папке api на Вёрселе)
+// В файле api/popularGames.js
 
 const { firefox } = require('playwright');
 
@@ -44,5 +44,10 @@ setInterval(fetchPopularGames, 5000);
 fetchPopularGames();  // Стартуем при запуске
 
 module.exports = (req, res) => {
+    // Добавляем заголовки CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');  // Это позволяет доступ с любого источника
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');  // Разрешаем методы
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');  // Разрешаем заголовки
+
     res.json(popularGames);
 };
